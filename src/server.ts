@@ -2,8 +2,11 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import { env } from './utility/config/env';
+import { connectMongoDB } from './infrastructure/database/config/DbConnection';
 
 async function bootstrap(): Promise<void> {
+    await connectMongoDB(env.mongodbUri);
+    
     const app = express();
     app.use(helmet());
     app.use(cors());
