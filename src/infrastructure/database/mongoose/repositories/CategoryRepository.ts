@@ -81,7 +81,7 @@ export class CategoryRepository implements CategoryBaseInterface {
       }
     ]);
 
-    return result[0] || null;;
+    return result[0] || null;
   }
 
   async searchByName(name: string): Promise<CategorySearchResultInterface[]> {
